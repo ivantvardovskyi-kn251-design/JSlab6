@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <title>Лабораторна робота 6 — Автотранспортне підприємство</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Автотранспортне підприємство</h1>
+    <p class="subtitle">Лабораторна робота 6 — DOM: вкладки, таблиці, CRUD-форми</p>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab-btn active" data-tab="cars">Автомобілі</button>
+    <button class="tab-btn" data-tab="trips">Рейси</button>
+    <button class="tab-btn" data-tab="drivers">Водії</button>
+  </nav>
+
+  <main>
+    <section id="cars" class="tab-panel active">
+      <div class="panel-head">
+        <h2>Автомобілі</h2>
+        <button id="add-car-btn" class="primary">+ Додати автомобіль</button>
+      </div>
+      <div id="car-form-section" class="form-section hidden">
+        <h3 class="form-title">Новий автомобіль</h3>
+        <form id="car-form">
+          <label>Номер <input name="plate" required placeholder="AT 0000 AA"></label>
+          <label>Марка <input name="brand" required></label>
+          <label>Вантажність, т <input name="capacity" type="number" step="0.1" min="0" required></label>
+          <label>Витрата палива, л/100 км <input name="fuelPer100" type="number" step="0.1" min="0" required></label>
+          <div class="form-actions">
+            <button type="submit" class="primary">Зберегти</button>
+            <button type="button" class="cancel-btn">Скасувати</button>
+          </div>
+        </form>
+      </div>
+      <div id="cars-container" class="table-container"></div>
+    </section>
+
+    <section id="trips" class="tab-panel">
+      <div class="panel-head">
+        <h2>Рейси</h2>
+        <button id="add-trip-btn" class="primary">+ Додати рейс</button>
+      </div>
+      <div id="trip-form-section" class="form-section hidden">
+        <h3 class="form-title">Новий рейс</h3>
+        <form id="trip-form">
+          <label>Автомобіль <select name="carId" required></select></label>
+          <label>Водій <select name="driverId" required></select></label>
+          <label>Дата виїзду <input name="departureDate" type="date" required></label>
+          <label>Дата повернення <input name="returnDate" type="date" required></label>
+          <label>Відстань, км <input name="distance" type="number" min="0" required></label>
+          <label>Пункт відправлення <input name="origin" required></label>
+          <label>Пункт призначення <input name="destination" required></label>
+          <label>Вантаж <input name="cargo" required></label>
+          <label>Статус рейсу
+            <select name="status">
+              <option>заплановано</option>
+              <option>в дорозі</option>
+              <option>завершено</option>
+              <option>скасовано</option>
+            </select>
+          </label>
+          <div class="form-actions">
+            <button type="submit" class="primary">Зберегти</button>
+            <button type="button" class="cancel-btn">Скасувати</button>
+          </div>
+        </form>
+      </div>
+      <div id="trips-container" class="table-container"></div>
+    </section>
+
+    <section id="drivers" class="tab-panel">
+      <div class="panel-head">
+        <h2>Водії</h2>
+        <button id="add-driver-btn" class="primary">+ Додати водія</button>
+      </div>
+      <div id="driver-form-section" class="form-section hidden">
+        <h3 class="form-title">Новий водій</h3>
+        <form id="driver-form">
+          <label>ПІБ <input name="fullName" required></label>
+          <label>Табельний номер <input name="personnelNumber" required></label>
+          <label>Категорія <input name="category" required placeholder="C, CE"></label>
+          <div class="form-actions">
+            <button type="submit" class="primary">Зберегти</button>
+            <button type="button" class="cancel-btn">Скасувати</button>
+          </div>
+        </form>
+      </div>
+      <div id="drivers-container" class="table-container"></div>
+    </section>
+  </main>
+
+  <div id="status-bar"></div>
+
+  <script src="main.js"></script>
+</body>
+</html>
